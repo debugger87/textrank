@@ -1,0 +1,103 @@
+iOS SDK v2.6.9，openWithPeerId 就报错，之前就没问题
+
+ ---
+
+ 06:21:47.0098 <NSThread: 0x79f509f0>{number = 5, name = (null)} | __43-[AVPaasClient goRequest:saveResult:block:]_block_invoke378 [Line 536]
+ Error (0.219s)
+ Error Domain=AVNetworkingErrorDomain Code=-1011 "Expected status code in (200-299), got 500" UserInfo=0x7b234410 {NSLocalizedRecoverySuggestion=<html>
+ <head><title>500 Internal Server Error</title></head>
+ <body bgcolor="white">
+ <center><h1>500 Internal Server Error</h1></center>
+ <hr><center>nginx</center>
+ </body>
+ </html>
+ , NSErrorFailingURLKey=http://router.g0.push.avoscloud.com/v1/route?appId=ene47sdq2i57smk1vmmn8u05x1am9hjskq8poz9f1om6d7t4&secure=1, NSLocalizedDescription=Expected status code in (200-299), got 500, AVNetworkingOperationFailingURLRequestErrorKey=<NSMutableURLRequest: 0x7b05dd50> { URL: http://router.g0.push.avoscloud.com/v1/route?appId=ene47sdq2i57smk1vmmn8u05x1am9hjskq8poz9f1om6d7t4&secure=1 }, AVNetworkingOperationFailingURLResponseErrorKey=<NSHTTPURLResponse: 0x79ef9760> { URL: http://router.g0.push.avoscloud.com/v1/route?appId=ene47sdq2i57smk1vmmn8u05x1am9hjskq8poz9f1om6d7t4&secure=1 } { status code: 500, headers {
+ Connection = close;
+ "Content-Length" = 186;
+ "Content-Type" = "text/html";
+ Date = "Tue, 16 Dec 2014 06:21:47 GMT";
+ Server = nginx;
+ } }}
+ 2014-12-16 14:21:47.953 feeling[5956:146740] {
+ count = 0;
+ }
+ 06:21:48.0260 <NSThread: 0x7b63e4c0>{number = 6, name = (null)} | __43-[AVPaasClient goRequest:saveResult:block:]_block_invoke378 [Line 536]
+ Error (0.117s)
+ Error Domain=AVNetworkingErrorDomain Code=-1011 "Expected status code in (200-299), got 500" UserInfo=0x79e0d0e0 {NSLocalizedRecoverySuggestion=<html>
+ <head><title>500 Internal Server Error</title></head>
+ <body bgcolor="white">
+ <center><h1>500 Internal Server Error</h1></center>
+ <hr><center>nginx</center>
+ </body>
+ </html>
+ , NSErrorFailingURLKey=http://router.g0.push.avoscloud.com/v1/route?appId=ene47sdq2i57smk1vmmn8u05x1am9hjskq8poz9f1om6d7t4&secure=1, NSLocalizedDescription=Expected status code in (200-299), got 500, AVNetworkingOperationFailingURLRequestErrorKey=<NSMutableURLRequest: 0x7b6332a0> { URL: http://router.g0.push.avoscloud.com/v1/route?appId=ene47sdq2i57smk1vmmn8u05x1am9hjskq8poz9f1om6d7t4&secure=1 }, AVNetworkingOperationFailingURLResponseErrorKey=<NSHTTPURLResponse: 0x7b22aa00> { URL: http://router.g0.push.avoscloud.com/v1/route?appId=ene47sdq2i57smk1vmmn8u05x1am9hjskq8poz9f1om6d7t4&secure=1 } { status code: 500, headers {
+ Connection = close;
+ "Content-Length" = 186;
+ "Content-Type" = "text/html";
+ Date = "Tue, 16 Dec 2014 06:21:48 GMT";
+ Server = nginx;
+ } }}
+ 06:21:50.0403 <NSThread: 0x7b63e4c0>{number = 6, name = (null)} | __43-[AVPaasClient goRequest:saveResult:block:]_block_invoke378 [Line 536]
+ Error (0.141s)
+ Error Domain=AVNetworkingErrorDomain Code=-1011 "Expected status code in (200-299), got 500" UserInfo=0x7b082090 {NSLocalizedRecoverySuggestion=<html>
+ <head><title>500 Internal Server Error</title></head>
+ <body bgcolor="white">
+ <center><h1>500 Internal Server Error</h1></center>
+ <hr><center>nginx</center>
+ </body>
+ </html>
+ , NSErrorFailingURLKey=http://router.g0.push.avoscloud.com/v1/route?appId=ene47sdq2i57smk1vmmn8u05x1am9hjskq8poz9f1om6d7t4&secure=1, NSLocalizedDescription=Expected status code in (200-299), got 500, AVNetworkingOperationFailingURLRequestErrorKey=<NSMutableURLRequest: 0x7b06d5c0> { URL: http://router.g0.push.avoscloud.com/v1/route?appId=ene47sdq2i57smk1vmmn8u05x1am9hjskq8poz9f1om6d7t4&secure=1 }, AVNetworkingOperationFailingURLResponseErrorKey=<NSHTTPURLResponse: 0x7b03bf60> { URL: http://router.g0.push.avoscloud.com/v1/route?appId=ene47sdq2i57smk1vmmn8u05x1am9hjskq8poz9f1om6d7t4&secure=1 } { status code: 500, headers {
+ Connection = close;
+ "Content-Length" = 186;
+ "Content-Type" = "text/html";
+ Date = "Tue, 16 Dec 2014 06:21:50 GMT";
+ Server = nginx;
+ } }}
+ 06:21:54.0549 <NSThread: 0x79f509f0>{number = 5, name = (null)} | __43-[AVPaasClient goRequest:saveResult:block:]_block_invoke378 [Line 536]
+ Error (0.145s)
+ Error Domain=AVNetworkingErrorDomain Code=-1011 "Expected status code in (200-299), got 500" UserInfo=0x7b080e90 {NSLocalizedRecoverySuggestion=<html>
+ <head><title>500 Internal Server Error</title></head>
+ <body bgcolor="white">
+ <center><h1>500 Internal Server Error</h1></center>
+ <hr><center>nginx</center>
+ </body>
+ </html>
+ , NSErrorFailingURLKey=http://router.g0.push.avoscloud.com/v1/route?appId=ene47sdq2i57smk1vmmn8u05x1am9hjskq8poz9f1om6d7t4&secure=1, NSLocalizedDescription=Expected status code in (200-299), got 500, AVNetworkingOperationFailingURLRequestErrorKey=<NSMutableURLRequest: 0x7b07d520> { URL: http://router.g0.push.avoscloud.com/v1/route?appId=ene47sdq2i57smk1vmmn8u05x1am9hjskq8poz9f1om6d7t4&secure=1 }, AVNetworkingOperationFailingURLResponseErrorKey=<NSHTTPURLResponse: 0x7b2342c0> { URL: http://router.g0.push.avoscloud.com/v1/route?appId=ene47sdq2i57smk1vmmn8u05x1am9hjskq8poz9f1om6d7t4&secure=1 } { status code: 500, headers {
+ Connection = close;
+ "Content-Length" = 186;
+ "Content-Type" = "text/html";
+ Date = "Tue, 16 Dec 2014 06:21:54 GMT";
+ Server = nginx;
+ } }}
+ 06:22:02.0664 <NSThread: 0x7b63e4c0>{number = 6, name = (null)} | __43-[AVPaasClient goRequest:saveResult:block:]_block_invoke378 [Line 536]
+ Error (0.114s)
+ Error Domain=AVNetworkingErrorDomain Code=-1011 "Expected status code in (200-299), got 500" UserInfo=0x7b083050 {NSLocalizedRecoverySuggestion=<html>
+ <head><title>500 Internal Server Error</title></head>
+ <body bgcolor="white">
+ <center><h1>500 Internal Server Error</h1></center>
+ <hr><center>nginx</center>
+ </body>
+ </html>
+ , NSErrorFailingURLKey=http://router.g0.push.avoscloud.com/v1/route?appId=ene47sdq2i57smk1vmmn8u05x1am9hjskq8poz9f1om6d7t4&secure=1, NSLocalizedDescription=Expected status code in (200-299), got 500, AVNetworkingOperationFailingURLRequestErrorKey=<NSMutableURLRequest: 0x7b063e60> { URL: http://router.g0.push.avoscloud.com/v1/route?appId=ene47sdq2i57smk1vmmn8u05x1am9hjskq8poz9f1om6d7t4&secure=1 }, AVNetworkingOperationFailingURLResponseErrorKey=<NSHTTPURLResponse: 0x79f4e480> { URL: http://router.g0.push.avoscloud.com/v1/route?appId=ene47sdq2i57smk1vmmn8u05x1am9hjskq8poz9f1om6d7t4&secure=1 } { status code: 500, headers {
+ Connection = close;
+ "Content-Length" = 186;
+ "Content-Type" = "text/html";
+ Date = "Tue, 16 Dec 2014 06:22:02 GMT";
+ Server = nginx;
+ } }}
+ 06:22:18.0771 <NSThread: 0x7b087af0>{number = 7, name = (null)} | __43-[AVPaasClient goRequest:saveResult:block:]_block_invoke378 [Line 536]
+ Error (0.105s)
+ Error Domain=AVNetworkingErrorDomain Code=-1011 "Expected status code in (200-299), got 500" UserInfo=0x79ec3870 {NSLocalizedRecoverySuggestion=<html>
+ <head><title>500 Internal Server Error</title></head>
+ <body bgcolor="white">
+ <center><h1>500 Internal Server Error</h1></center>
+ <hr><center>nginx</center>
+ </body>
+ </html>
+ , NSErrorFailingURLKey=http://router.g0.push.avoscloud.com/v1/route?appId=ene47sdq2i57smk1vmmn8u05x1am9hjskq8poz9f1om6d7t4&secure=1, NSLocalizedDescription=Expected status code in (200-299), got 500, AVNetworkingOperationFailingURLRequestErrorKey=<NSMutableURLRequest: 0x7b089f90> { URL: http://router.g0.push.avoscloud.com/v1/route?appId=ene47sdq2i57smk1vmmn8u05x1am9hjskq8poz9f1om6d7t4&secure=1 }, AVNetworkingOperationFailingURLResponseErrorKey=<NSHTTPURLResponse: 0x7b06dbe0> { URL: http://router.g0.push.avoscloud.com/v1/route?appId=ene47sdq2i57smk1vmmn8u05x1am9hjskq8poz9f1om6d7t4&secure=1 } { status code: 500, headers {
+ Connection = close;
+ "Content-Length" = 186;
+ "Content-Type" = "text/html";
+ Date = "Tue, 16 Dec 2014 06:22:18 GMT";
+ Server = nginx;
+ } }}

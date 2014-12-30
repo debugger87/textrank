@@ -1,0 +1,25 @@
+首先我的app是连接到xcode直接装上iphone真机的，用的是dev证书；
+ 1.第一种配置我是能收到推送通知的；
+ 2.第二种配置就没法收到推送通知； 如果app上架到appstore 测试和生产模式都应该收到推送；
+
+ 我认为 测试环境证书 栏上传的 nb_dev.p12没有起到应有的作用，而是把生产证书作为 测试和生产模式下的推送证书
+
+ 也不知道到底是什么问题。
+  照着你们的推送证书的指导走了整个流程，之后在_Notification里面看到了具体的推送消息，subscribers也是大于０的。但是客户端就是收不到推送。
+  完全不知道到底是什么环节出了问题，你们的推送就没有一个对应的日志可以看么？
+
+我想在ios中 往ios和安卓推送消息，但是要限定频道，在文档中没有看到，麻烦提供下方法，我们现在在这个问题卡住了
+
+使用leanCloud后台推送 手机可以收到 但是自己发送推送就收不到 问了半天技术支持 没人理我
+
+- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+
+ //聊天接收推送消息必需
+ AVInstallation *currentInstallation = [AVInstallation currentInstallation];
+ [currentInstallation setDeviceTokenFromData:deviceToken];
+ [currentInstallation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+ if (error) {
+ [self showErrorWithTitle:@"Installation保存失败" error:error];
+ }
+ }];
+ }
