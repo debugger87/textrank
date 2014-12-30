@@ -18,7 +18,7 @@ object KeywordExtractor {
     nodes.foreach(node => scoreMap.put(node.getId, 1.0f))
 
     // Iteration
-    (1 to 50).foreach {
+    (1 to 500).foreach {
       i =>
         nodes.foreach {
           node =>

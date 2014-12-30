@@ -15,7 +15,7 @@ class KeywordExtractorTest {
 
   @Test
   def testExtractKeyword = {
-    (1 to 3).foreach {
+    (1 to 4).foreach {
       i =>
         val text1 = Source.fromURL(getClass.getResource(s"/text/${i}.txt")).getLines().mkString("\n")
         KeywordExtractor.extractKeywords(text1).foreach(println)
