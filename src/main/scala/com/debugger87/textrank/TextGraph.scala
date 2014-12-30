@@ -20,18 +20,12 @@ import scala.io.Source
  */
 class TextGraph(val graphName: String,
                 val doc: String) extends SLF4JLogging {
+  import TextGraph._
+
   val graph = new SingleGraph(graphName)
-  val tagger = new MaxentTagger("taggers/left3words-wsj-0-18.tagger")
-  val stopwords = Source.fromURL(getClass.getResource("/stopwords/stopwords-en.txt")).
-    getLines().toSet
+  constructTextGraph
 
-  if (containsChinese(doc)) {
-    constructTextGraph(true)
-  } else {
-    constructTextGraph(false)
-  }
-
-  private def constructTextGraph(isChinese: Boolean) = {
+  private def constructTextGraph = {
     val bi = BreakIterator.getSentenceInstance(Locale.ENGLISH)
     bi.setText(doc)
     var lastIndex = bi.first()
@@ -43,7 +37,7 @@ class TextGraph(val graphName: String,
           Character.isLetterOrDigit(doc.charAt(firstIndex))) {
         val sentence = doc.substring(firstIndex, lastIndex)
         var wordSet: mutable.HashSet[String] = mutable.HashSet.empty
-        if (isChinese) {
+        if (containsChinese(sentence)) {
           wordSet = chinesWordSet(sentence)
         } else {
           wordSet = englishWordSet(sentence)
@@ -116,4 +110,10 @@ class TextGraph(val graphName: String,
         } else false
     } > 0
   }
+}
+
+object TextGraph {
+  val tagger = new MaxentTagger("taggers/left3words-wsj-0-18.tagger")
+  val stopwords = Source.fromURL(getClass.getResource("/stopwords/stopwords-en.txt")).
+    getLines().toSet
 }

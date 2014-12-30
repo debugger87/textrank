@@ -1,23 +1,20 @@
-We create a String and call the r( ) method on it. Scala implicitly converts the String to a RichString and invokes that method to get an instance of Regex. To find a first match of the regular expression, simply call the findFirstIn() method. If instead of finding only the first occurrence we would like to find all occurrences of the matching word, we can use the findAllIn( ) method and in case there are multiple Scala words available in the target string, this will return a collection of all matching words.
-You can make use of the mkString( ) method to concatenate the resulting list and you can use a pipe (|) to search small and capital case of Scala and you can use Regex constructor instead or r() method to create a pattern as follows:
-import scala.util.matching.Regex
+Spark Research
+Apache Spark started as a research project at UC Berkeley in the AMPLab, which focuses on big data analytics.
 
-object Test {
-   def main(args: Array[String]) {
-      val pattern = new Regex("(S|s)cala")
-      val str = "Scala is scalable and cool"
+Our goal was to design a programming model that supports a much wider class of applications than MapReduce, while maintaining its automatic fault tolerance. In particular, MapReduce is inefficient for multi-pass applications that require low-latency data sharing across multiple parallel operations. These applications are quite common in analytics, and include:
 
-      println((pattern findAllIn str).mkString(","))
-   }
-}
+Iterative algorithms, including many machine learning algorithms and graph algorithms like PageRank.
+Interactive data mining, where a user would like to load data into RAM across a cluster and query it repeatedly.
+Streaming applications that maintain aggregate state over time.
+Traditional MapReduce and DAG engines are suboptimal for these applications because they are based on acyclic data flow: an application has to run as a series of distinct jobs, each of which reads data from stable storage (e.g. a distributed file system) and writes it back to stable storage. They incur significant cost loading the data on each step and writing it back to replicated storage.
 
-If you would like to replace matching text, we can use replaceFirstIn( ) to replace the first match or replaceAllIn( ) to replace all occurrences as follows:
+Spark offers an abstraction called resilient distributed datasets (RDDs) to support these applications efficiently. RDDs can be stored in memory between queries without requiring replication. Instead, they rebuild lost data on failure using lineage: each RDD remembers how it was built from other datasets (by transformations like map, join or groupBy) to rebuild itself. RDDs allow Spark to outperform existing models by up to 100x in multi-pass analytics. We showed that RDDs can support a wide variety of iterative algorithms, as well as interactive data mining and a highly efficient SQL engine (Shark).
 
-object Test {
-   def main(args: Array[String]) {
-      val pattern = "(S|s)cala".r
-      val str = "Scala is scalable and cool"
+You can find more about the research behind Spark in the following papers:
 
-      println(pattern replaceFirstIn(str, "Java"))
-   }
-}
+Discretized Streams: Fault-Tolerant Streaming Computation at Scale. Matei Zaharia, Tathagata Das, Haoyuan Li, Timothy Hunter, Scott Shenker, Ion Stoica. SOSP 2013. November 2013.
+Shark: SQL and Rich Analytics at Scale. Reynold Xin, Joshua Rosen, Matei Zaharia, Michael J. Franklin, Scott Shenker, Ion Stoica. SIGMOD 2013. June 2013.
+Discretized Streams: An Efficient and Fault-Tolerant Model for Stream Processing on Large Clusters. Matei Zaharia, Tathagata Das, Haoyuan Li, Scott Shenker, Ion Stoica. HotCloud 2012. June 2012.
+Shark: Fast Data Analysis Using Coarse-grained Distributed Memory (demo). Cliff Engle, Antonio Lupher, Reynold Xin, Matei Zaharia, Haoyuan Li, Scott Shenker, Ion Stoica. SIGMOD 2012. May 2012. Best Demo Award.
+Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing. Matei Zaharia, Mosharaf Chowdhury, Tathagata Das, Ankur Dave, Justin Ma, Murphy McCauley, Michael J. Franklin, Scott Shenker, Ion Stoica. NSDI 2012. April 2012. Best Paper Award and Honorable Mention for Community Award.
+Spark: Cluster Computing with Working Sets. Matei Zaharia, Mosharaf Chowdhury, Michael J. Franklin, Scott Shenker, Ion Stoica. HotCloud 2010. June 2010.

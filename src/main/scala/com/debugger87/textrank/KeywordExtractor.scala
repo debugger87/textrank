@@ -18,23 +18,21 @@ object KeywordExtractor {
     nodes.foreach(node => scoreMap.put(node.getId, 1.0f))
 
     // Iteration
-    var iter = 0
-    while (iter < 30) {
-      nodes.foreach {
-        node =>
-          val edges = node.getEdgeSet.toArray.map(_.asInstanceOf[Edge])
-          var score = 1.0f - 0.85f
-          edges.foreach {
-            edge =>
-              val node0 = edge.getNode0.asInstanceOf[Node]
-              val node1 = edge.getNode1.asInstanceOf[Node]
-              val tempNode = if (node0.getId.equals(node.getId)) node1 else node0
-              score += 0.85f * (1.0f * scoreMap(tempNode.getId) / tempNode.getDegree)
-          }
-          scoreMap.put(node.getId, score)
-      }
-
-      iter += 1
+    (1 to 50).foreach {
+      i =>
+        nodes.foreach {
+          node =>
+            val edges = node.getEdgeSet.toArray.map(_.asInstanceOf[Edge])
+            var score = 1.0f - 0.85f
+            edges.foreach {
+              edge =>
+                val node0 = edge.getNode0.asInstanceOf[Node]
+                val node1 = edge.getNode1.asInstanceOf[Node]
+                val tempNode = if (node0.getId.equals(node.getId)) node1 else node0
+                score += 0.85f * (1.0f * scoreMap(tempNode.getId) / tempNode.getDegree)
+            }
+            scoreMap.put(node.getId, score)
+        }
     }
 
     scoreMap.toList.sortWith(_._2 > _._2).slice(0, 20).map(_._1)
