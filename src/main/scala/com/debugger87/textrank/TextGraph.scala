@@ -93,9 +93,9 @@ class TextGraph(val graphName: String,
       val start = tagged.lastIndexOf("_") + 1
       val reg = "^[N]".r
       if (reg.findFirstMatchIn(tagged.substring(start)).isDefined &&
-          !stopwords.contains(label.word()) &&
-          label.word().length >= 2)
-        wordSet.add(label.word())
+          !stopwords.contains(label.word().toLowerCase()) &&
+          label.word().toLowerCase.length >= 3)
+        wordSet.add(label.word().toLowerCase)
     }
 
     wordSet
