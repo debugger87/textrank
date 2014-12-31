@@ -13,6 +13,7 @@ libraryDependencies ++= Seq(
   "info.sunng.segs" % "ansjseg" % "1.0.0-SNAPSHOT",
   "edu.stanford.nlp" % "stanford-corenlp" % "1.3.3",
   "com.typesafe.akka" % "akka-slf4j_2.10" % "2.3.4",
+  "org.slf4j" % "slf4j-log4j12" % "1.7.5",
   "junit" % "junit" % "4.12"
 )
 

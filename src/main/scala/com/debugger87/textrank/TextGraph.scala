@@ -10,6 +10,7 @@ import edu.stanford.nlp.tagger.maxent.MaxentTagger
 import org.ansj.domain.Term
 import org.ansj.splitWord.analysis.ToAnalysis
 import org.ansj.util.recognition.NatureRecognition
+import org.graphstream.graph.Node
 import org.graphstream.graph.implementations.SingleGraph
 
 import scala.collection.mutable
@@ -57,6 +58,11 @@ class TextGraph(val graphName: String,
             }
         }
       }
+    }
+
+    graph.getNodeSet.toArray.map(_.asInstanceOf[Node]).foreach {
+      node =>
+        log.info(s"${node.getId}:${node.getDegree}")
     }
   }
 
