@@ -26,7 +26,7 @@ class TextGraph(val graphName: String,
   constructTextGraph
 
   private def constructTextGraph = {
-    val bi = BreakIterator.getSentenceInstance(Locale.ENGLISH)
+    val bi = BreakIterator.getSentenceInstance(Locale.CHINESE)
     bi.setText(doc)
     var lastIndex = bi.first()
     while (lastIndex != BreakIterator.DONE) {
